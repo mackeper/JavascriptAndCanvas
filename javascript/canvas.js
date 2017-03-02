@@ -5,8 +5,27 @@ function Canvas(width, height) {
     this.width = width;
     this.height = height;
     this.canvas = document.createElement('canvas');
+    this.canvas.id = "mainCanvas";
     this.canvas.height = this.height;
     this.canvas.width = this.width;
+    var entityList = [
+        new Explosion(200,200,1000)
+    ];
+    
+    /**
+       Returns the list of entities.
+     */
+    this.getEntityList = function() {
+        return entityList;
+    }
+    
+    /**
+       Pushes a entity to the entityList.
+    */
+    this.pushEnitity = function pushEntity(entity) {
+        entityList.push(entity);
+    }
+    
 }
 
 /**
@@ -16,20 +35,13 @@ function run() {
     var canvasObject = new Canvas(1280,720);
     document.body.appendChild(canvasObject.canvas);
 
-    var entityList = [
-        new Explosion(200,200,1000)
-    ];
+    var input = new Input();
+
 
     var time = 0;
-    loop(canvasObject, entityList, time);
+    loop(canvasObject, canvasObject.getEntityList(), time);
 }
 
-/**
-   Pushes a entity to the entityList.
-*/
-function pushEntity(entity) {
-    entityList.push(entity);
-}
 
 /**
    Game/program loop
