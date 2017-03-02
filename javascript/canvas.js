@@ -34,7 +34,7 @@ setTimeout(function () {
 };
 
 /**
-Updates all entites
+Handles all updating
 */
 function update(time, entityList){
    for(var i = 0; i < entityList.length; i++) {
@@ -43,7 +43,7 @@ function update(time, entityList){
 }
 
 /**
-render all entites
+Handle all rendering
 */
 function render(canvasObject, entityList){
     var ctx = canvasObject.canvas.getContext("2d");
