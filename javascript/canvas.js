@@ -27,7 +27,7 @@ Game/program loop
 
 function loop(canvasObject, entityList, time){
 setTimeout(function () {
-    //update(time);
+    update(time, entityList);
     render(canvasObject, entityList);
     loop(canvasObject, entityList, time);
 }, 16);
@@ -36,8 +36,10 @@ setTimeout(function () {
 /**
 Updates all entites
 */
-function update(time){
-
+function update(time, entityList){
+   for(var i = 0; i < entityList.length; i++) {
+       entityList[i].update();
+   }
 }
 
 /**
