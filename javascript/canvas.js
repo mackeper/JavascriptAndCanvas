@@ -23,6 +23,14 @@ function run() {
     var time = 0;
     loop(canvasObject, entityList, time);
 }
+
+/**
+   Pushes a entity to the entityList.
+*/
+function pushEntity(entity) {
+    entityList.push(entity);
+}
+
 /**
    Game/program loop
 */
