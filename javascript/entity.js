@@ -8,6 +8,7 @@ function Entity(x,y) {
     this.speedx = 0;
     this.speedy = 0;
     this.angle = 0;
+    this.dead = false;
     this.color = "#000000";
     this.update = function() {
         this.x += Math.cos(this.angle) * this.speedx;
