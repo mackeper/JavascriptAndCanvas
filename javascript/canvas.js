@@ -1,5 +1,5 @@
 /**
-Canvas class
+   Canvas class
 */
 function Canvas(width, height) {
     this.width = width;
@@ -10,19 +10,21 @@ function Canvas(width, height) {
 }
 
 /**
-function that starts the loop
+   function that starts the loop
 */
 function run() {
     var canvasObject = new Canvas(1280,720);
     document.body.appendChild(canvasObject.canvas);
 
-    var entityList = [new Entity(100,100)];
+    var entityList = [
+        new Explosion(200,200,1000)
+    ];
 
     var time = 0;
     loop(canvasObject, entityList, time);
 }
 /**
-Game/program loop
+   Game/program loop
 */
 
 function loop(canvasObject, entityList, time){
@@ -34,16 +36,19 @@ setTimeout(function () {
 };
 
 /**
-Handles all updating
+   Handles all updating
 */
 function update(time, entityList){
    for(var i = 0; i < entityList.length; i++) {
        entityList[i].update();
+       if(entityList[i].dead == true) {
+           entityList.splice(i,1);
+       }
    }
 }
 
 /**
-Handle all rendering
+   Handle all rendering
 */
 function render(canvasObject, entityList){
     var ctx = canvasObject.canvas.getContext("2d");
