@@ -32,7 +32,7 @@ function Particle(x, y, goalx, goaly){
             alpha = hyp2/hyp;
         }
         // Check if dead
-        if(alpha < 0.08) {
+        if(alpha < 0.1) {
             entity.dead = true;
         }
     }
