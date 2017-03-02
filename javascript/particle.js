@@ -32,7 +32,8 @@ function Particle(x, y, goalx, goaly){
             alpha = hyp2/hyp;
         }
         // Check if dead
-        if(alpha < 0.1) {
+        var lengthFromStart = Math.sqrt(Math.pow(x-entity.x,2) + Math.pow(y-entity.y,2));
+        if(lengthFromStart > hyp || alpha < 0.08) {
             entity.dead = true;
         }
     }
