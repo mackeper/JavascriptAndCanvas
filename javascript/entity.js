@@ -11,7 +11,7 @@ function Entity(x,y) {
     this.render = function(ctx) {
         ctx.strokeStyle = "#000000";
         ctx.beginPath();
-        ctx.arc(this.x.this.y,10,0,2*Math.PI);
+        ctx.arc(this.x,this.y,10,0,2*Math.PI);
         ctx.stroke();
     }
 }
