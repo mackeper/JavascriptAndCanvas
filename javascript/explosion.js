@@ -3,7 +3,7 @@
 */
 function Explosion(x,y,size) {
     var entity = new Entity(x,y);
-    var amount = size/5;
+    var amount = Math.round(Math.sqrt(size))*2;
     var particleList = [];
     
     for(var i = 0; i < amount; i++) {
