@@ -5,13 +5,18 @@
 function Entity(x,y) {
     this.x = x;
     this.y = y;
+    this.speedx = 0;
+    this.speedy = 0;
+    this.angle = 0;
+    this.color = "#000000";
     this.update = function() {
-        this.x = this.x + 1;
+        this.x += Math.cos(this.angle) * this.speedx;
+        this.y += Math.sin(this.angle) * this.speedy;
     }
     this.render = function(ctx) {
-        ctx.strokeStyle = "#000000";
+        ctx.fillStyle = this.color;
         ctx.beginPath();
-        ctx.arc(this.x,this.y,10,0,2*Math.PI);
-        ctx.stroke();
+        ctx.arc(this.x,this.y,5,0,2*Math.PI);
+        ctx.fill();
     }
 }
