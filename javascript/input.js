@@ -44,14 +44,12 @@ function Input(canvasObject, hudObject) {
     canvas.on('click', function(e) {
         var mouse = getMouse(e);
         checkHud(mouse, mouseActions.CLICK);
-        canvasObject.pushEntity(
-            new Explosion(mouse.x, mouse.y, Math.random()*500+50 ));
+        canvasObject.pushEntity(canvasObject.getTool(mouse.x, mouse.y));
    });
     
    canvas.on('mousedown', function(e) {
         var mouse = getMouse(e);
         checkHud(mouse, mouseActions.DOWN);
-        canvasObject.pushEntity(
-            new Explosion(mouse.x, mouse.y, Math.random()*500+50 ));
+        canvasObject.pushEntity(canvasObject.getTool(mouse.x, mouse.y));
    });
 }
