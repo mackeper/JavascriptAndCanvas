@@ -1,4 +1,4 @@
-function hudElement(x, y, sizex,sizey) {
+function HudElement(x, y, sizex,sizey) {
     this.x = x;
     this.y = y;
     this.sizex = sizex;
