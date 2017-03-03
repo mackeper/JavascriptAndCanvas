@@ -23,7 +23,7 @@ function HudElement(x, y, sizex,sizey) {
     /**
        Handle when hudElement gets clicked.
      */
-    this.click = function() {
+    this.onClick = function() {
         // Override for action.
     }
 
