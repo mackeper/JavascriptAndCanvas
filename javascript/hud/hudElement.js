@@ -1,12 +1,12 @@
-function hudElement(x, y, x2,y2) {
+function hudElement(x, y, sizex,sizey) {
     this.x = x;
     this.y = y;
-    this.x2 = x2;
-    this.y2 = y2;
+    this.sizex = sizex;
+    this.sizey = sizey;
     this.render = function(ctx) {
         //Override this to render.
         ctx.strokeStyle = "#000000";
-        ctx.rect(this.x, this.y, this.x2, this.y2);
+        ctx.rect(this.x, this.y, this.sizex, this.sizey);
         ctx.stroke();
     }
     
@@ -14,8 +14,8 @@ function hudElement(x, y, x2,y2) {
        Check for intersection
      */
     this.intersect = function(mx,my) {
-        if(this.x <= mx && mx <= this.x2 &&
-          this.y <= my && my <= this.y2) {
+        if(this.x <= mx && mx <= this.x + this.sizex &&
+          this.y <= my && my <= this.y + this.sizey) {
             this.click();
         }
     }
