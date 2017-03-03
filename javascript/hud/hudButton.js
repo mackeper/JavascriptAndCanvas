@@ -6,6 +6,10 @@ function HudButton(x,y,sizex,sizey,onclick) {
     var minSize = Math.min(sizex,sizey);
     var depht = minSize/10;
     var roundEdgeSize = depht;
+    var text = "";
+    var textSize = 20;
+    var font = "px Arial";
+    
     hudelement.render = function(ctx) {
         var xside = this.x + this.sizex;
         var yside = this.y + this.sizey;
@@ -33,8 +37,18 @@ function HudButton(x,y,sizex,sizey,onclick) {
         ctx.closePath();
         ctx.stroke();
         ctx.fill();
+        
+        //Draw text
+        ctx.font = textSize + font;
+        ctx.fillStyle = "#FFFFFF";
+        var textSizeX = ctx.measureText(text).width;
+        ctx.fillText(text, this.x + this.sizex/2 - textSizeX/2, this.y + this.sizey/2 + textSize/2);
+
     }
 
+    /**
+       Handle button click.
+     */
     hudelement.onClick = function() {
         onclick();
         
@@ -43,11 +57,22 @@ function HudButton(x,y,sizex,sizey,onclick) {
         color2 = tempColor;
     };
     
+    /**
+       Handle button getting pressed down
+     */
     hudelement.onMouseDown = function() {
         var tempColor = color;
         color = color2;
         color2 = tempColor;
     };
+
+    /**
+       Set button text.
+     */
+    hudelement.setText = function(str,tsize) {
+        text = str;
+        textSize = tsize;
+    }
 
     return hudelement;
 }
