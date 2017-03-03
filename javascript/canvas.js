@@ -55,6 +55,9 @@ function run() {
 
     var time = 0;
     loop(canvasObject, canvasObject.getEntityList(), time);
+    
+    //set debug mode
+    setDebugMode(true);
 }
 
 
