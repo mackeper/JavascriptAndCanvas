@@ -16,7 +16,7 @@ function HudElement(x, y, sizex,sizey) {
     this.intersect = function(mx,my) {
         if(this.x <= mx && mx <= this.x + this.sizex &&
           this.y <= my && my <= this.y + this.sizey) {
-            this.click();
+            this.onClick();
         }
     }
     
@@ -25,6 +25,13 @@ function HudElement(x, y, sizex,sizey) {
      */
     this.onClick = function() {
         // Override for action.
+    }
+
+    /**
+       Handles on release events
+     */
+    this.onMouseDown = function() {
+        //Override for action.
     }
 
 }
