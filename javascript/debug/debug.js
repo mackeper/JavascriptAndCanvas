@@ -11,5 +11,7 @@ function setDebugText(str) {
        return;
     }
     
-    debugDiv.innerHTML = str;
+    debugDiv.innerHTML = str + 
+        "<br/>--------------<br/>" + 
+        debugDiv.innerHTML;
 }
