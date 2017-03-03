@@ -18,5 +18,3 @@ Tests | :bomb: `:bomb:`
 General Update | :zap: `:zap:`
 Deprecation | :poop: `:poop:`
 Work In Progress (WIP) | :construction: `:construction:`
-:bug: | `:bug:` | bug fix
-:tada: | `:tada:` | initial commit
