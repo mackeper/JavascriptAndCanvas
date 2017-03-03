@@ -32,11 +32,15 @@ function Canvas(width, height) {
    function that starts the loop
 */
 function run() {
+    // Create a canvas and add it to the html.
     var canvasObject = new Canvas(1280,720);
     document.body.appendChild(canvasObject.canvas);
 
-    var input = new Input(canvasObject);
+    //Create a hud and add it to the entityList.
+    var hudObject = new Hud();
+    canvasObject.pushEntity(hudObject);
 
+    var input = new Input(canvasObject, hudObject);
 
     var time = 0;
     loop(canvasObject, canvasObject.getEntityList(), time);
@@ -51,6 +55,8 @@ function loop(canvasObject, entityList, time){
 setTimeout(function () {
     update(time, entityList);
     render(canvasObject, entityList);
+    
+    time++;
     loop(canvasObject, entityList, time);
 }, 16);
 };
