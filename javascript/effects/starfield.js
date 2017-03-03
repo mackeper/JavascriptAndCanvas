@@ -34,8 +34,8 @@ function Starfield(x,y,x2,y2,goalx,goaly) {
         }
         if(time == 0 && particleList.length == 0) {
             entity.dead == true;
-        } else if(time > 0) {
-            time--;
+        } else if(time < new Date().getTime()) {
+            time = 0;
         }
     }
 
@@ -45,8 +45,11 @@ function Starfield(x,y,x2,y2,goalx,goaly) {
         }
     }
 
+    /**
+       Set lifetime in milliseconds.
+     */
     entity.setTime = function(t) {
-        time = t;
+        time = new Date().getTime() + t;
     }
     return entity;
 }
