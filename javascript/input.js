@@ -25,10 +25,12 @@ function Input(canvasObject, hudObject) {
     };
     
     function checkHud(mouse, action) {
+        var found = false;
         var elementList = hudObject.getHudElementList();
         for(var i = 0; i < elementList.length; i++) {
             var e = elementList[i];
             if(e.intersect(mouse.x,mouse.y)) {
+                found = true;
                 switch(action) {
                     case mouseActions.CLICK:
                     e.onClick();
@@ -39,17 +41,18 @@ function Input(canvasObject, hudObject) {
                 }
             }
         }
+        return found;
     }
     
     canvas.on('click', function(e) {
         var mouse = getMouse(e);
-        checkHud(mouse, mouseActions.CLICK);
-        canvasObject.pushEntity(canvasObject.getTool(mouse.x, mouse.y));
+        if(!checkHud(mouse, mouseActions.CLICK)) {
+            canvasObject.pushEntity(canvasObject.getTool(mouse.x, mouse.y));
+        }
    });
     
    canvas.on('mousedown', function(e) {
         var mouse = getMouse(e);
         checkHud(mouse, mouseActions.DOWN);
-        canvasObject.pushEntity(canvasObject.getTool(mouse.x, mouse.y));
    });
 }
