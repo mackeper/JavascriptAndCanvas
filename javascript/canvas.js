@@ -8,6 +8,7 @@ function Canvas(width, height) {
     this.canvas.id = "mainCanvas";
     this.canvas.height = this.height;
     this.canvas.width = this.width;
+
     var entityList = [
         new Explosion(200,200,1000)
     ];
@@ -26,8 +27,18 @@ function Canvas(width, height) {
         entityList.push(entity);
     }
     
-}
+    this.tool = function(x,y) {
+        return new Explosion(x,y, Math.random()*500+50);
+    }
 
+    /**
+       Tool, what happens on a mouse action.
+     */
+    this.getTool = function(x,y) {
+        return this.tool(x,y);
+    }
+
+}
 /**
    function that starts the loop
 */
@@ -37,7 +48,7 @@ function run() {
     document.body.appendChild(canvasObject.canvas);
 
     //Create a hud and add it to the entityList.
-    var hudObject = new Hud();
+    var hudObject = new Hud(canvasObject);
     canvasObject.pushEntity(hudObject);
 
     var input = new Input(canvasObject, hudObject);
