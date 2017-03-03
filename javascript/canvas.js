@@ -22,7 +22,7 @@ function Canvas(width, height) {
     /**
        Pushes a entity to the entityList.
     */
-    this.pushEnitity = function pushEntity(entity) {
+    this.pushEntity = function pushEntity(entity) {
         entityList.push(entity);
     }
     
@@ -35,7 +35,7 @@ function run() {
     var canvasObject = new Canvas(1280,720);
     document.body.appendChild(canvasObject.canvas);
 
-    var input = new Input();
+    var input = new Input(canvasObject);
 
 
     var time = 0;
