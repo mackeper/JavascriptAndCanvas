@@ -3,7 +3,7 @@
    Handling all user input
  */
 
-function Input(canvasObject) {
+function Input(canvasObject, hudObject) {
     var canvas = $('#mainCanvas');
     var canvasPosition = {
         x: canvas.offset().left,
