@@ -1,0 +1,3 @@
+function Hud(canvasObject) {
+    
+}
