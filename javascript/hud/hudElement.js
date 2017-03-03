@@ -16,8 +16,9 @@ function HudElement(x, y, sizex,sizey) {
     this.intersect = function(mx,my) {
         if(this.x <= mx && mx <= this.x + this.sizex &&
           this.y <= my && my <= this.y + this.sizey) {
-            this.onClick();
+            return true;
         }
+        return false;
     }
     
     /**
